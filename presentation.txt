@@ -59,17 +59,18 @@ DIRECTIVES
  - Directives are special attributes for adding additional functionality to html elements.
 
 5 slide 2 layer; 
+**CHOOSE 5**
  - here you can see few of basic directives
-  V-bind - dynamically associated with one or more attributes.
-  V-cloak - hides “baleen” expressions, until the data is pulled
-  v-if - condition for rendering the element
-  V-else - means “else block” for v-if
-  V-for - loop through an array of objects
-  V-model - connects the state with the input element
+  **V-bind** - dynamically associated with one or more attributes.
+  V-cloak - hides “baleen” expressions, until the data is pulled 
+  **v-if** - condition for rendering the element
+  **V-else** - means “else block” for v-if
+  **V-for** - loop through an array of objects
+  **V-model** - connects the state with the input element
   V-on - connects the event listener with the element
   V-once - renders an element only at the beginning and no longer follows it.
   V-pre - does not compile the element and its children
-  V-show - toggles the visibility of the element, changing the CSS display property
+  **V-show** - toggles the visibility of the element, changing the CSS display property
   V-text - updates the textContent element
 
 5 slide 3 layer;
