@@ -1,0 +1,169 @@
+INTRO
+
+1 slide - greetings! today i'm gonna to tell you about popular js
+ framework which called VUE.JS
+
+------------------
+
+ABOUT DEV
+
+2 slide;
+ - so what is the vue.JS?
+//
+2 slide 2 layer;
+ - Vue.js is a progressive framework for building user interfaces. 
+Unlike other monolithic frameworks, vue is designed for gradual deployment. The core library
+is focused on the view layer only, and is easy to pick up and integrate with other libraries
+or existing projects. On the other hand, Vue is also perfectly capable for creating single-page
+applications especially when used in combination with modern tooling and supporting libraries.
+//
+2 slide 3 layer;
+ - Now i'm gonna to tell you about the creator of Vue.js - Evan You.
+Evan You - is former employee of Google and Meteor Dev Group. He started to developing this
+framework in 2013, so the first public release took place at the beggining of 2014, 
+more presicisely in February. Now vue.js commonly used by chineese companies like: 
+Alibaba, Xiaomi and other.
+
+------------------
+
+FEATURES
+
+3 slide 1 layer;
+ - Okay, now we can hightlight some concepts of vue.js; The main concepts of vue are:
+ constructor, components, directives, transitions; Now i want to tell you about them detailed.
+
+ distinguishes it from others
+
+------------------
+
+CONSTRUCTOR
+
+4 slide 1 layer;
+ - Working with vue started from creating of new instance 'new Vue'. it is commonly creating
+by constructor.
+4 slide 2 layer;
+
+ - Here you can see basic constructor of vue.
+ 
+ Element 'el' is our active element;
+ 'template' choose where Vue will render;
+ The 'data' stores the current state of instance;
+ And the 'computed' method provides us with computed properties.
+(some words about methods) // MAYBE
+
+------------------
+
+DIRECTIVES
+
+5 slide 1 layer;
+ - Directives are special attributes for adding additional functionality to html elements.
+
+5 slide 2 layer; 
+ - here you can see few of basic directives
+  V-bind - dynamically associated with one or more attributes.
+  V-cloak - hides “baleen” expressions, until the data is pulled
+  v-if - condition for rendering the element
+  V-else - means “else block” for v-if
+  V-for - loop through an array of objects
+  V-model - connects the state with the input element
+  V-on - connects the event listener with the element
+  V-once - renders an element only at the beginning and no longer follows it.
+  V-pre - does not compile the element and its children
+  V-show - toggles the visibility of the element, changing the CSS display property
+  V-text - updates the textContent element
+
+5 slide 3 layer;
+ - here you can see how these directives used in html and js;
+
+------------------
+
+COMPONENTS
+
+6 slide 1 layer;
+- Components help to extend the basic html elements and implement reusable code.
+ In essence, the components are reusable parts of the UI. At the design stage, 
+ we split our application into independent parts and get the tree structure of 
+ components.
+
+6 slide 2 layer;
+- Here you can see the base component and how it is commonly used.
+  In the js file you can see a fairly simple code that allows us to create 
+  a button that will count the number of clicks on it. 
+
+6 slide 3 layer;
+- as you can see we created button wich count the number of clicks on it.
+  but in vue components can be reused as many times as you want.
+  So we just add few strings to html and check the result;
+  As a result we got 3 buttons, each of which works separately;
+  
+------------------
+
+TRANSITIONS
+
+7 slide 1 layer;
+ - Vue provides various ways to apply animation effects when elements are drawn,
+  updated, or deleted from the DOM. They include tools for:
+
+7 slide 2 layer;
+ - automatically applying classes for CSS transitions and animations
+  integration of third-party libraries for CSS animations, such as Animate.css
+  use javascript to manipulate DOM
+  integration of third-party JavaScript libraries for animations, such as Velocity.js
+
+7 slide 3 layer;
+ - Here we can see simple example of usage vue transitions
+codepen.io/Demetrius/embed/ZByQzx/?height=490&theme-id=16150&default-tab=result
+We got a bouncing appear and disappear animation
+pretty cool isn't it?
+
+------------------
+
+EXAPMLES
+
+8 slide 1 layer;
+- now i whant to show you some simple web app's which is created by using vue.
+
+8 slide 2 layer;
+-  here you can see app which gonna show you some information after hover the span block;
+
+8 slide 3 layer;
+- by following the link you can see the result 
+  and if you want to change your message in real time you must use this simple command in 
+  console.
+  (use command) /optional\
+  As you can see we change our output message;
+
+8 slide 4 layer;
+- next app help's us to create simple 'to do' list
+  as a result of compiled this code we code list of 3 items, but by using vue js we can add
+  new items in real life time. By following this link you can see codepen project in which
+  you can add new item by using this console command.
+  (show example)
+
+  8 slide 5 layer;
+- the latest application allows us to see the text change to text field in real time
+  it is creating by this simple code
+
+  8 slide 6 layer;
+- by following the link you can check the performance of the application 
+
+------------------
+
+OUTRO
+
+9 slide 1 layer;
+- Why should I use it?
+
+- Vue is amazing! I think it's great that I can just plug it in on the page and 
+start working without having to shamanize with the build system or CLI. 
+It's very easy to start working with it, even if you have never worked with 
+JavaScript frameworks. It is the perfect combination of convenience and power.
+
+- Vue went from a small amateur project to a widely used project with a 
+large community, and I hope that I managed to dispel your doubts about 
+whether to use this framework or not.
+
+finale
+
+
+
