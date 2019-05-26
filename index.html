@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Vue.js</title>
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/black.css" />
+
+    <link rel="stylesheet" href="lib/css/monokai.css" />
+
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "css/print/pdf.css"
+        : "css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>JavaSript Framework — VUE.JS</h2>
+        </section>
+
+        <section>
+          <section>
+            <h2>What is Vue.js?</h2>
+          </section>
+          <section>
+            <img src="./src/vue.svg" style="border: none; background: none;">
+          </section>
+          <section>
+            <h2>Creator of Vue.js — Evan You</h2>
+            <img data-src="src/evan.jpg" />
+          </section>
+        </section>
+
+        <section>
+          <h2>Main concepts</h2>
+          <ul>
+            <li>Constructor</li>
+            <li>Components</li>
+            <li>Directives</li>
+            <li>Transitions</li>
+          </ul>
+        </section>
+
+        <section>
+          <section>
+            <h2>Constructor</h2>
+          </section>
+          <section>
+            <pre><code class="hljs" style="position: relative; top: -30px; max-height: 660px;">new Vue({
+    el: '<jQueryStyleSelector>',
+    template: '<id || inline template>',
+    data: {
+        props: 'this you can find in templates',
+        first_name: "Evan",
+        last_name: "You"
+    },
+    computed: {
+        full_name: function(){
+            return this.first_name + this.last_name; //Evan You  
+        }
+    },  
+    methods: {
+        // life cycle methods
+        beforeCreate: function(){}, 
+        // checking data, initializing events
+        created: function(){},      
+        // if (!el || !template)
+        beforeMount: function(){},  
+        // creating vm.$el and replace el by vm.$el
+        mounted: function(){},      
+        // item rendered
+        beforeUpdate: function(){}, 
+        // renders the VDOM again and compares with the real DOM, applies the changes
+        updated: function(){},      
+        // changes rendered
+        beforeDestroy: function(){},
+        // complete dismantling of watchers, internal components and event listeners
+        destroyed: function(){},    
+        // called when the operation stops
+
+        customMethodsAlso: function(){
+            //access to data
+        }
+    }
+})</code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section><h2>Directives</h2></section>
+          <section>
+              <ul>
+                <li>
+                    V-bind - dynamically associated with one or more attributes.
+                </li>
+                <li>
+                    V-if - condition for rendering the element<br>
+                    V-else - means “else block” for v-if
+                </li>
+                <li>
+                    V-for - loop through an array of objects
+                </li>
+                <li>
+                    V-model - connects the state with the input element
+                </li>
+                <li>
+                    V-show - toggles the visibility of the element, changing the CSS display property
+                </li>
+              </ul>
+          </section>
+          <section>
+            <p>HTML</p>
+            <pre><code class="hljs">
+<div v-my-directive="someValue"></div>
+            </code></pre>  
+            <p>JS</p>
+            <pre><code class="hljs">
+ Vue.directive('my-directive', {
+  bind: function () {
+    // massive functions / event listeners
+  },
+  update: function (newValue, oldValue) {
+    // some changes
+  },
+  unbind: function () {
+    // cleaning
+  }
+})             
+            </code></pre>
+          </section>
+          <section>
+              <pre><code class="hljs">
+<div id="app-3">
+  <span v-if="seen">Now you see me</span>
+</div>
+              </code></pre>
+              <pre><code class="hljs">
+var app3 = new Vue({
+  el: '#app-3',
+  data: {
+    seen: true
+  }
+})
+              </code></pre>
+              <img src="./src/direct.png">
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Components</h2>
+            <img src="./src/comp.png">
+          </section>
+          <section>
+            <div>
+            <p>Basic component</p>
+              <pre><code class="hljs">Vue.component('button-counter', {
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  template: '<button v-on:click="count++">You clicked me {{ count }} times.  
+  </button>'
+})
+
+new Vue({ el: '#components-demo' })</code></pre>
+              <p>HTML</p>
+              <pre><code class="hljs"><div id="components-demo">
+  <button-counter></button-counter>
+</div></code></pre>
+              </div>
+          </section>
+          <section>
+              <p>Result</p>
+              <img src="./src/result_1.png">
+              <pre><code class="hljs"><div id="components-demo">
+  <button-counter></button-counter>
+  <button-counter></button-counter>
+  <button-counter></button-counter>
+</div></code></pre>
+                <img src="./src/result_2.png">
+          </section>
+        </section>
+
+        <section>
+          <section><h2>Transitions</h2></section>
+          <section>
+            <ul>
+              <li>automatically applying classes for CSS transitions and animations</li>
+              <li>integration of third-party libraries for CSS animations, such as Animate.css</li>
+              <li>use javascript to manipulate DOM</li>
+              <li>integration of third-party JavaScript libraries for animations, such as Velocity.js</li>
+            </ul>
+            </section>
+          <section>
+            <p>HTML</p>
+              <pre><code class="hljs"><div id="demo">
+  <button @click="show = !show">Toggle</button>
+  <transition name="bounce">
+    <p v-if="show">Look at me!</p>
+  </transition>
+</div></code></pre>
+              <p>JS</p>
+              <pre><code class="hljs">new Vue({
+  el: '#demo',
+  data: {
+    show: true
+  }
+})</code></pre>
+              <a href="https://www.codepen.io/Demetrius/embed/ZByQzx/?height=490&theme-id=16150&default-tab=result" target="_blank">Example</a>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            Few simple app's
+          </section>
+          <section>
+            <div>
+                <p>HTML</p>
+              <pre><code class="hljs">
+<div id="app-2">
+  <span v-bind:title="message">
+    Hover your mouse over me for a few seconds
+    to see my dynamically bound title!
+  </span>
+</div>
+              </code></pre>
+              <p>JS</p>
+              <pre><code class="hljs">
+var app2 = new Vue({
+  el: '#app-2',
+  data: {
+    message: 'You loaded this page on ' + new Date().toLocaleString()
+  }
+})
+              </code></pre>
+            </div>
+          </section>
+          <section>
+              <p>Result</p>
+              <img src="./src/app_1.png">
+              <p>
+                <a href="https://codepen.io/barikq/pen/YbLRad?editors=1111" target="_blank">Example</a>
+              </p>
+              <p>
+                  <pre><code>app.message = 'your text'</code></pre>
+              </p>
+          </section>
+          <section>
+              <div>
+                  <p>HTML</p>
+                <pre><code class="hljs"><div id="app-4">
+  <ol>
+    <li v-for="todo in todos">
+      {{ todo.text }}
+    </li>
+  </ol>
+</div></code></pre>
+                <p>JS</p>
+                <pre><code class="hljs">var app4 = new Vue({
+  el: '#app-4',
+  data: {
+    todos: [
+      { text: 'Learn JavaScript' },
+      { text: 'Learn Vue' },
+      { text: 'Build something awesome' }
+    ]
+  }
+})</code></pre>
+              </div>
+          </section>
+          <section>
+              <p>Result</p>
+              <img src="./src/app_2.png"> 1 
+              <p><pre><code>app.todos.push({ text: 'New item' })</code></pre></p>
+              <img src="./src/app_2_2.png"> 2
+              <p><a href="https://codepen.io/barikq/pen/earQPG?editors=1111" target="_blank">Example</a></p>
+          </section>
+          <section>
+              <div>
+                  <p>HTML</p>
+                <pre><code class="hljs"><div id="app-6">
+  <p>{{ message }}</p>
+  <input v-model="message">
+</div></code></pre>
+                <p>JS</p>
+                <pre><code class="hljs">var app6 = new Vue({
+  el: '#app-6',
+  data: {
+    message: 'Hello Vue!'
+  }
+})</code></pre>
+              </div>
+          </section>
+          <section>
+              <p>Result</p>
+              <img src="./src/app_3_1.png">
+              <img src="./src/app_3_2.png">
+              <p><a href="https://codepen.io/barikq/pen/BexGGN" target="_blank">Example</a></p>
+          </section>
+        </section>
+
+        <section>
+          <section><h2>Why I should use it?</h2></section>
+        </section>
+
+        <section>
+          <img src="../WEB/img/dreadPhoto.jpg" />
+        </section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          {
+            src: "plugin/markdown/marked.js"
+          },
+          {
+            src: "plugin/markdown/markdown.js"
+          },
+          {
+            src: "plugin/notes/notes.js",
+            async: true
+          },
+          {
+            src: "plugin/highlight/highlight.js",
+            async: true
+          }
+        ]
+      });
+    </script>
+  </body>
+</html>
